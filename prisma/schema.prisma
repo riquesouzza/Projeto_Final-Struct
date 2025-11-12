@@ -15,11 +15,25 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model Usuario {
+  email String  @id
+  nome String
+  nickname String
+  senha String
+  data DateTime
+  avaliacao Avaliacao[]
+}
+
 model Jogo {
     id_jogo Int @id @default(autoincrement())
     nome String
     classificacao String?
     categorias Categoria[]
+}
+
+model Tag{
+    id_tags Int @id @default(autoincrement())
+    desc String
 }
 
 model Categoria {
