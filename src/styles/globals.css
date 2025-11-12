@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* smooth scroll for in-page anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Steam color palette variables */
+:root {
+  --steam-bg: #171a21;
+  --steam-accent: #66c0f4;
+  --steam-dark: #1b2838;
+  --steam-mid: #2a475e;
+  --steam-light: #c7d5e0;
+}
+
+/* Simple utility classes to use the Steam palette in components */
+.steam-header {
+  background-color: rgba(23, 26, 33, 0.92);
+  color: var(--steam-light);
+  backdrop-filter: blur(6px);
+}
+
+.steam-accent {
+  color: var(--steam-accent);
+}
+.steam-accent:hover {
+  color: color-mix(in srgb, var(--steam-accent) 80%, white 20%);
+}
+
+.steam-link {
+  color: var(--steam-light);
+  transition: color 0.2s ease;
+}
+.steam-link:hover {
+  color: var(--steam-accent);
+}
+
+.steam-text {
+  color: var(--steam-light);
+}
+
+.steam-bg-dark {
+  background-color: var(--steam-bg);
+  color: var(--steam-light);
+}
