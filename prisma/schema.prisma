@@ -13,6 +13,7 @@ model Usuario {
   nickname String
   senha String
   data DateTime
+  Jogoscomprados Jogo[]
   //avaliacoes Avaliacao[]
 }
 
@@ -21,11 +22,14 @@ model Jogo {
     nome String
     classificacao String?
     categorias Categoria[]
+    tags Tag[]
+    compradores Usuario[]
 }
 
 model Tag{
     id_tags Int @id @default(autoincrement())
     desc String
+    jogos Jogo[]
 }
 
 model Categoria {
