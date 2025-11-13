@@ -39,6 +39,14 @@ async function main() {
     }
   }})
 
+ await prisma.usuario.create({data:{
+    nome: 'Cálita',
+    nickname: 'uchoa',
+    email: 'calitauchoa@gmail.com',
+    senha: '123',
+    data: new Date(),
+  }})
+
   console.log('Sucesso!')
 }
 
