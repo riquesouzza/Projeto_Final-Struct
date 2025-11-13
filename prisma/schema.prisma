@@ -24,6 +24,7 @@ model Jogo {
     categorias Categoria[]
     tags Tag[]
     compradores Usuario[]
+    //avaliacoes Avaliacao[]
 }
 
 model Tag{
