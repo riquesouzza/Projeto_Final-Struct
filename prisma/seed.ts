@@ -3,19 +3,43 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient()
 
 async function main() {
-  await prisma.categoria.create({data:{
-    nome: 'RPG',
-    descricao: 'Role Playing Game'
+  await prisma.usuario.create({data:{
+    nome: 'Kamily',
+    nickname: 'KamilyGamerzinha',
+    email: 'kamily@gmail.com',
+    senha: '852',
+    data: new Date(),
+    jogos: {
+      create: [
+        {
+          nome: 'Stardew Valley',
+          categorias: {
+            create: [
+              {nome: 'Casual', descricao: 'Jogos simples e rápidos, ideais para momentos de lazer sem compromisso.'},
+              {nome: 'Simulação', descricao: 'Experimente situações reais ou fictícias com alta imersão.'}
+            ]
+          },
+          tags: {
+            create: [
+              {desc: 'Divertido'},
+              {desc: 'História envolvente'},
+            ]
+          }
+        },
+        {
+          nome: 'Hades',
+          classificacao: '+14',
+          categorias: {
+            create: [
+              {nome: 'Roguelike', descricao: 'Jogos com mapas gerados aleatoriamente, alta dificuldade e progressão baseada em tentativa e erro.'}
+            ]
+          },
+        }
+      ]
+    }
   }})
-  await prisma.categoria.create({data:{
-    nome: 'Aventura',
-    descricao: 'Role Playing Game'
-  }})
-  await prisma.categoria.create({data:{
-    nome: 'Sandbox',
-    descricao: 'Role Playing Game'
-  }})
-  console.log('Sucesso')
+
+  console.log('Sucesso!')
 }
 
 main()
