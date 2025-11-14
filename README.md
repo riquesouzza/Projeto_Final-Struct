@@ -1,29 +1,90 @@
-# Create T3 App
+## **Guia de Execução do Projeto (Prisma e Seed)**
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+**Modelo Relacional**
 
-## What's next? How do I make an app with this?
+![Modelo Relacional](./public/Modelo_Relacional/Modelo%20Relacional.png)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Link de acesso para o MR: https://dbdiagram.io/d/Mapa-Relacional-6913a5446735e1117054b244
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+---
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## **1. Clonar o Repositório**
 
-## Learn More
+Faça a cópia do projeto para sua máquina:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+```bash
+git clone https://github.com/riquesouzza/Projeto_Final-Struct.git
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+cd Projeto_Final-Struct
+```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+---
 
-## How do I deploy this?
+## **2. Instalar Dependências**
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Use o **pnpm** para instalar todas as dependências:
+
+```bash
+pnpm install
+```
+
+---
+
+## **3. Configurar Variáveis de Ambiente**
+
+Certifique-se de editar o arquivo `.env.example` para `.env` na raiz do projeto e modificar a variável:
+
+```
+AUTH_DISCORD_ID="Lista 2"
+AUTH_DISCORD_SECRET="Lista 2"
+```
+---
+
+
+## **4. Gerar o Prisma Client**
+
+Execute a geração do cliente Prisma:
+
+```bash
+pnpm prisma generate
+```
+
+---
+
+## **5. Aplicar Migrações**
+
+Crie as tabelas definidas no schema:
+
+```bash
+pnpm prisma migrate dev --name init
+```
+
+---
+
+## **6. Adicionar script e executar o Seed**
+
+Adicione o script no (`package.jsons`):
+
+```
+"prisma": {
+  "seed": "node prisma/seed.ts"
+}
+```
+
+Caso o projeto possua um script de seed (`prisma/seed.ts`), execute:
+
+```bash
+pnpm prisma db seed
+```
+
+Esse comando insere dados iniciais, como usuários, jogos, categorias e outras informações necessárias.
+
+---
+
+## **7. (Opcional) Abrir o Prisma Studio**
+
+Para visualizar e manipular o banco de dados de forma gráfica:
+
+```bash
+pnpm prisma studio
+```

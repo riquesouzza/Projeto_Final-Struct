@@ -14,17 +14,17 @@ model Usuario {
   senha String
   data DateTime
   Jogoscomprados Jogo[]
-  //avaliacoes Avaliacao[]
+  avaliacoes Avaliacao[]
 }
 
 model Jogo {
     id_jogo Int @id @default(autoincrement())
-    nome String
+    nome String @unique
     classificacao String?
     categorias Categoria[]
     tags Tag[]
     compradores Usuario[]
-    //avaliacoes Avaliacao[]
+    avaliacoes Avaliacao[]
 }
 
 model Tag{
@@ -38,6 +38,16 @@ model Categoria {
     nome String
     descricao String?
     jogos Jogo[]
+}
+
+model Avaliacao {
+    id Int @id @default(autoincrement())
+    descricao String
+    autor Usuario @relation(fields: [autor_id], references: [email])
+    autor_id String
+    jogos Jogo @relation(fields: [jogoId], references: [id_jogo])
+    jogoId Int
+    estrelas Int
 }
 
 // Necessary for Next auth
