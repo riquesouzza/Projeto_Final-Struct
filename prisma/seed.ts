@@ -36,6 +36,10 @@ async function main() {
           },
         }
       ]
+    }, avaliacoes:{
+      create:[{jogos: {connect:{nome:'Stardew Valley'}}, descricao:'Amo esse jogo! Muito viciante e relaxante.', estrelas:5},  {jogos: {connect:{nome:'Hades'}}, descricao:'Desafiante e com uma história incrível.', estrelas:4} ]
+
+
     }
   }})
 
