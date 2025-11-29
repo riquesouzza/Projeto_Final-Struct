@@ -38,7 +38,7 @@ export default function MyCarousel() {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 overflow-hidden">
-      <h2 className="text-2xl sm:text-2xl lg:text-4xl font-bold text-[#66C0F4] mb-4">Jogos Validados</h2>
+      <h2 className="text-2xl sm:text-2xl lg:text-4xl font-bold text-[#66C0F4] mb-4">Jogos Avaliados</h2>
       
       <Carousel className="w-full">
         <CarouselContent className="ml-0">
