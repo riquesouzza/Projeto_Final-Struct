@@ -33,19 +33,13 @@ export default function Footer() {
                     Categorias
                   </a>
                 </li>
-                <li>
-                  <a className="steam-link" href="/#reviews">
-                    Reviews
-                  </a>
-                </li>
-                
               </ul>
             </div>
 
             <div>
               <h5 className="font-semibold steam-accent">Contato</h5>
-              <p className="mt-2 steam-text text-sm">Luca</p>
-              <p className="mt-1 steam-text text-sm">Pedro</p>
+              <p className="mt-2 steam-text text-sm">Struct</p>
+              <p className="mt-2 steam-text text-sm">UnB</p>
               <p className="mt-1 steam-text text-sm">Brasília, DF</p>
             </div>
           </div>
