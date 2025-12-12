@@ -33,6 +33,7 @@ export function Navbar() {
     { href: "/#about", label: "Sobre" },
     { href: "/#categories", label: "Categorias" },
     { href: "/#reviews", label: "Reviews" },
+    { href: "/login", label: "Entrar" },
   ];
 
   return (
