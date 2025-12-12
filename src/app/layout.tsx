@@ -7,7 +7,6 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { Navbar } from "./_components/Navbar";
 import Footer from "./_components/Footer";
 import { AuthProvider } from "@/components/authProvider";
-import NavbarLoginCadastro from "@/components/Navbar_login_cadastro.tsx";
 
 export const metadata: Metadata = {
   title: "SteamReviews",
@@ -30,8 +29,8 @@ export default function RootLayout({
           <AuthProvider>
           <Navbar />
           {children}
-          </AuthProvider>
           <Footer />
+          </AuthProvider>
         </TRPCReactProvider>
       </body>
     </html>

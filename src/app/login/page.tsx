@@ -1,39 +1,29 @@
-"use client"
+"use client";
 
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Entrar() {
-  const session = useSession();
+  const { data: session, status } = useSession();
+
+  if (session) {
+    redirect("/usuario");
+  }
+
   return (
-    <main id="Entrar" className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-xl shadow-md text-center space-y-6">
-        {session.data ? (
-          <>
-            <div>
-              <h2 className="text-xl font-semibold text-gray-800">Logado como:</h2>
-              <p className="text-lg font-medium text-gray-700 mt-2">
-                {session.data?.user?.name || "Sem sessão"}
-              </p>
-            </div>
-            <button 
-              onClick={() => signOut()} 
-              className="px-8 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-            >
-              Sair
-            </button>
-          </>
-        ) : (
-          <>
-            <p className="text-gray-700">Sem sessão ativa</p>
-            <button 
-              onClick={() => signIn("google")} 
-              className="px-8 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-            >
-              Login com Google
-            </button>
-          </>
-        )}
+    <section className="min-h-screen bg-[var(--steam-mid)] flex items-center justify-center p-6">
+      <div className="w-full max-w-md bg-[var(--steam-dark)] p-8 rounded-2xl shadow-xl">
+        <h1 className="text-2xl font-bold text-white text-center mb-6">
+          Entrar
+        </h1>
+        
+        <button 
+          onClick={() => signIn("google", { callbackUrl: "/usuario" })}
+          className="w-full py-3 bg-white text-gray-800 rounded-lg hover:bg-gray-100 transition font-medium"
+        >
+          Entrar com Google
+        </button>
       </div>
-    </main>
+    </section>
   );
 }
