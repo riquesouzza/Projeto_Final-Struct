@@ -8,47 +8,45 @@ datasource db {
 }
 
 model Usuario {
-  email String  @id
-  nome String
-  nickname String
-  senha String
-  data DateTime
-  Jogoscomprados Jogo[]
-  avaliacoes Avaliacao[]
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
+  nome           String
+  nickname       String
+  senha          String
+  data           DateTime
+  role           String    @default("USER")
+
+  Jogoscomprados Jogo[]    @relation("Compras")
+  avaliacoes     Avaliacao[]
 }
 
 model Jogo {
-    id_jogo Int @id @default(autoincrement())
-    nome String @unique
-    classificacao String?
-    categorias Categoria[]
-    tags Tag[]
-    compradores Usuario[]
-    avaliacoes Avaliacao[]
+  id_jogo        Int         @id @default(autoincrement())
+  nome           String      @unique
+  descricao      String?     
+  imagem         String?     
+  categorias     Categoria[]
+  compradores    Usuario[]   @relation("Compras")
+  avaliacoes     Avaliacao[]
 }
 
-model Tag{
-    id_tags Int @id @default(autoincrement())
-    desc String
-    jogos Jogo[]
-}
 
 model Categoria {
-    id_categoria Int @id @default(autoincrement())
-    nome String
-    descricao String?
-    jogos Jogo[]
+  id_categoria Int    @id @default(autoincrement())
+  nome         String @unique
+  jogos        Jogo[]
 }
 
 model Avaliacao {
-    id Int @id @default(autoincrement())
-    descricao String
-    autor Usuario @relation(fields: [autor_id], references: [email])
-    autor_id String
-    jogos Jogo @relation(fields: [jogoId], references: [id_jogo])
-    jogoId Int
-    estrelas Int
+  id        Int      @id @default(autoincrement())
+  descricao String
+  estrelas  Int
+  autor_id  Int
+  autor     Usuario  @relation(fields: [autor_id], references: [id])
+  jogoId    Int
+  jogo      Jogo     @relation(fields: [jogoId], references: [id_jogo], onDelete: Cascade)
 }
+
 
 // Necessary for Next auth
 model Account {
@@ -82,6 +80,7 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
+  role          String    @default("USER")
   emailVerified DateTime?
   image         String?
   accounts      Account[]
