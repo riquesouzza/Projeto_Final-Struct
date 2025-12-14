@@ -11,7 +11,7 @@ import {
 
 export default function Categorias() {
 
-  const textos = ["Aventura", "Terror", "Romance", "Ação", "Sci-Fi"];
+  const textos = ["RPG", "Terror", "Simulaçao",];
 
   return (
     <section id="categories" className="min-h-screen py-16 bg-(--steam-mid)">
@@ -38,7 +38,6 @@ export default function Categorias() {
               </CarouselItem>
             ))}
           </CarouselContent>
-
           <CarouselPrevious className="scale-75 -left-3 top-1/2 -translate-y-1/2 sm:-left-6" />
           <CarouselNext className="scale-75 -right-3 top-1/2 -translate-y-1/2 sm:-right-6" />
         </Carousel>

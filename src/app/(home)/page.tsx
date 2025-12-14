@@ -1,6 +1,6 @@
-import Capa from "@/app/Pagina1/Capa";
-import Sobre from "@/app/Pagina1/sobre";
-import Categorias from "@/app/Pagina1/categorias";
+import Capa from "@/app/(home)/home/Capa";
+import Sobre from "@/app/(home)/home/sobre";
+import Categorias from "@/app/(home)/home/categorias";
 
 export default function Pagina1 () {
   return (

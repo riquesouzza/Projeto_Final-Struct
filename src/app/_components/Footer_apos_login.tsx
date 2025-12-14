@@ -1,5 +1,6 @@
-export default function Footer() {
+export default function Footer_apos_login() {
   return (
+
 
   <footer className="w-full steam-bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -12,27 +13,6 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 md:items-center md:gap-12">
-            <div>
-              <h5 className="font-semibold steam-accent">Navegação</h5>
-              <ul className="mt-2 space-y-1 text-sm">
-                <li>
-                  <a className="steam-link" href="/#home">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a className="steam-link" href="/#about">
-                    Sobre
-                  </a>
-                </li>
-                <li>
-                  <a className="steam-link" href="/#categories">
-                    Categorias
-                  </a>
-                </li>
-              </ul>
-            </div>
-
             <div>
               <h5 className="font-semibold steam-accent">Contato</h5>
               <p className="mt-2 steam-text text-sm">Struct</p>
