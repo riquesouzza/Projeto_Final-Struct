@@ -4,8 +4,6 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
-import { Navbar } from "./_components/Navbar";
-import Footer from "./_components/Footer";
 import { AuthProvider } from "@/components/authProvider";
 
 export const metadata: Metadata = {
