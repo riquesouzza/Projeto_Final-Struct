@@ -7,7 +7,7 @@ export default function Entrar() {
   const { data: session, status } = useSession();
 
   if (session) {
-    redirect("/usuario");
+    redirect("/inicio");
   }
 
   return (
