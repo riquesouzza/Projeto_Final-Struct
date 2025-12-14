@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
+
 import Navbar_apos_login from "@/app/_components/Navbar_apos_login";
 import Footer_apos_login from "@/app/_components/Footer_apos_login";
-import { AuthProvider } from "@/components/ui/authProvider";
+import { AuthProvider } from "@/components/authProvider";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Toaster } from "@/components/ui/sonner";
 import { useSession } from "next-auth/react";

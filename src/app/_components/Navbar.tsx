@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 
-export function Navbar() {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [menuUserOpen, setMenuUserOpen] = useState(false);
   const { data: session } = useSession();

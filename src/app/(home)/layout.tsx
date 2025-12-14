@@ -2,11 +2,10 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import { AuthProvider } from "@/components/ui/authProvider";
-import { TRPCReactProvider } from "@/trpc/react";
-import { Navbar } from "./_components/Navbar";
-import Footer from "./_components/Footer";
 import { AuthProvider } from "@/components/authProvider";
+import { TRPCReactProvider } from "@/trpc/react";
+import  Navbar  from "@/app/_components/Navbar";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "SteamReviews",
