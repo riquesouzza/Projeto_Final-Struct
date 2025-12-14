@@ -1,90 +1,62 @@
-## **Guia de Execução do Projeto (Prisma e Seed)**
+# SteamReview
 
-**Modelo Relacional**
+## Ideia Geral
 
-![Modelo Relacional](./public/Modelo_Relacional/Modelo%20Relacional.png)
+**SteamReview** é um site de avaliações de jogos para aplicar os conceitos de desenvolvimento web desenvolvidos no trainee da Struct.
 
-Link de acesso para o MR: https://dbdiagram.io/d/Mapa-Relacional-6913a5446735e1117054b244
-
----
-
-## **1. Clonar o Repositório**
-
-Faça a cópia do projeto para sua máquina:
-
-```bash
-git clone https://github.com/riquesouzza/Projeto_Final-Struct.git
-
-cd Projeto_Final-Struct
-```
+O sistema foi pensado para autenticação de usuários, listagem de jogos, avaliações com notas e comentários.
 
 ---
 
-## **2. Instalar Dependências**
+## Objetivos do Projeto
 
-Use o **pnpm** para instalar todas as dependências:
-
-```bash
-pnpm install
-```
-
----
-
-## **3. Configurar Variáveis de Ambiente**
-
-Certifique-se de editar o arquivo `.env.example` para `.env` na raiz do projeto e modificar a variável:
-
-```
-AUTH_DISCORD_ID="Lista 2"
-AUTH_DISCORD_SECRET="Lista 2"
-```
----
-
-
-## **4. Gerar o Prisma Client**
-
-Execute a geração do cliente Prisma:
-
-```bash
-pnpm prisma generate
-```
+* Aplicar conceitos práticos de desenvolvimento full stack
+* Implementar autenticação e controle de usuários
+* Integrar banco de dados com a aplicação
+* Desenvolver uma interface responsiva
 
 ---
 
-## **5. Aplicar Migrações**
+## Tecnologias Utilizadas (T3 App)
 
-Crie as tabelas definidas no schema:
+O projeto foi desenvolvido utilizando a **T3 Stack**.
 
-```bash
-pnpm prisma migrate dev --name init
-```
+### Principais Tecnologias
 
----
-
-## **6. Adicionar script e executar o Seed**
-
-Adicione o script no (`package.jsons`):
-
-```
-"prisma": {
-  "seed": "node prisma/seed.ts"
-}
-```
-
-Caso o projeto possua um script de seed (`prisma/seed.ts`), execute:
-
-```bash
-pnpm prisma db seed
-```
-
-Esse comando insere dados iniciais, como usuários, jogos, categorias e outras informações necessárias.
+* **Next.js** – Framework React para aplicações web
+* **TypeScript** – Tipagem estática para maior segurança e manutenibilidade do código
+* **tRPC** – Comunicação typesafe entre frontend e backend
+* **Prisma ORM** – Mapeamento objeto-relacional e gerenciamento do banco de dados
+* **NextAuth.js (Auth.js)** – Sistema de autenticação de usuários
+* **Tailwind CSS** – Estilização responsiva baseada em utilitários
 
 ---
 
-## **7. (Opcional) Abrir o Prisma Studio**
+## Funcionalidades Principais
 
-Para visualizar e manipular o banco de dados de forma gráfica:
+* Cadastro e autenticação de usuários
+* Listagem de jogos disponíveis para avaliação
+* Criação, edição e visualização de reviews
+* Avaliações com nota e comentário textual
+* Interface responsiva para desktop e dispositivos móveis
 
-```bash
-pnpm prisma studio
-```
+---
+
+## Estrutura Geral do Projeto
+
+* **Frontend**: desenvolvido em Next.js com componentes React e estilização via Tailwind CSS
+* **Backend**: rotas e lógica de negócio utilizando tRPC
+* **Banco de Dados**: Prisma ORM
+* **Autenticação**: NextAuth
+
+---
+
+## Autores
+
+Fernando Henrique 
+
+Calita Uchoa
+
+Luca
+
+Pedro
