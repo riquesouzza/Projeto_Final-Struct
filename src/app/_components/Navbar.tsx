@@ -1,15 +1,15 @@
-// A Navbar foi feita por Luca
-// Ela contém links de navegação para as seções da homepage e é responsiva para desktop e mobile
-
 "use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [menuUserOpen, setMenuUserOpen] = useState(false);
+  const { data: session } = useSession();
 
-  // fecha o menu quando a janela é redimensionada para desktop
   useEffect(() => {
     function onResize() {
       if (window.innerWidth >= 768) setOpen(false);
@@ -18,16 +18,17 @@ export function Navbar() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // fecha o menu ao pressionar Escape
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        setMenuUserOpen(false);
+      }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // apontar para âncoras na homepage (id="home", "reviews", ...)
   const links = [
     { href: "/#home", label: "Home" },
     { href: "/#about", label: "Sobre" },
@@ -39,19 +40,62 @@ export function Navbar() {
     <header className="steam-header sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="text-2xl font-extrabold steam-accent">
-              SteamReviews
-            </Link>
-          </div>
+          <Link href="/" className="text-2xl font-extrabold steam-accent">
+            SteamReviews
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex md:items-center md:space-x-6" aria-label="Primary">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="steam-link transition-colors duration-200">
+              <Link
+                key={l.href}
+                href={l.href}
+                className="steam-link transition-colors duration-200"
+              >
                 {l.label}
               </Link>
             ))}
+
+            {session?.user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setMenuUserOpen((s) => !s)}
+                  className="flex items-center space-x-2 hover:opacity-80"
+                >
+                  <Image
+                    src={session.user.image ?? "/default-avatar.png"}
+                    alt="Foto do usuário"
+                    width={32}
+                    height={32}
+                    className="rounded-full border"
+                  />
+                  <span className="font-medium">{session.user.name?.split(" ")[0]}</span>
+                </button>
+
+                {menuUserOpen && (
+                  <div className="absolute right-0 mt-2 w-40 bg-gray-900 shadow-lg border border-gray-700 rounded-md p-2">
+                    <Link
+                      href="/usuario"
+                      className="block px-3 py-2 hover:bg-gray-800 rounded"
+                      onClick={() => setMenuUserOpen(false)}
+                    >
+                      Meu perfil
+                    </Link>
+
+                    <button
+                      className="block w-full text-left px-3 py-2 hover:bg-gray-800 rounded"
+                      onClick={() => signOut()}
+                    >
+                      Sair
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link href="/login" className="steam-link transition-colors">
+                Entrar
+              </Link>
+            )}
           </nav>
 
           {/* Mobile hamburger */}
@@ -82,7 +126,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu (animated) */}
+      {/* Mobile menu */}
       <div
         id="mobile-menu"
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
@@ -100,6 +144,33 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
+
+          {session?.user ? (
+            <>
+              <Link
+                href="/usuario"
+                className="block px-3 py-2 rounded-md hover:bg-gray-800/30"
+                onClick={() => setOpen(false)}
+              >
+                Meu perfil
+              </Link>
+
+              <button
+                className="block w-full text-left px-3 py-2 rounded-md hover:bg-gray-800/30"
+                onClick={() => signOut()}
+              >
+                Sair
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/login"
+              className="block px-3 py-2 rounded-md hover:bg-gray-800/30"
+              onClick={() => setOpen(false)}
+            >
+              Entrar
+            </Link>
+          )}
         </nav>
       </div>
     </header>

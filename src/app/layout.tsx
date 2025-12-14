@@ -6,6 +6,7 @@ import { Geist } from "next/font/google";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Navbar } from "./_components/Navbar";
 import Footer from "./_components/Footer";
+import { AuthProvider } from "@/components/authProvider";
 
 export const metadata: Metadata = {
   title: "SteamReviews",
@@ -25,9 +26,11 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body>
         <TRPCReactProvider>
+          <AuthProvider>
           <Navbar />
           {children}
           <Footer />
+          </AuthProvider>
         </TRPCReactProvider>
       </body>
     </html>
