@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 
-export function Navbar() {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [menuUserOpen, setMenuUserOpen] = useState(false);
   const { data: session } = useSession();
@@ -30,21 +30,19 @@ export function Navbar() {
   }, []);
 
   const links = [
-    { href: "/#home", label: "Home" },
-    { href: "/#about", label: "Sobre" },
-    { href: "/#categories", label: "Categorias" },
-    { href: "/#reviews", label: "Reviews" },
+    { href: "/#home", label: "HOME" },
+    { href: "/#about", label: "SOBRE" },
+    { href: "/#categories", label: "CATEGORIAS" },
   ];
 
   return (
     <header className="steam-header sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-2xl font-extrabold steam-accent">
-            SteamReviews
+          <Link href="/ " className="text-4xl font-extrabold steam-accent text-shadow-md text-shadow-[#00BA2B]/30">
+            SR
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex md:items-center md:space-x-6" aria-label="Primary">
             {links.map((l) => (
               <Link
@@ -92,13 +90,12 @@ export function Navbar() {
                 )}
               </div>
             ) : (
-              <Link href="/login" className="steam-link transition-colors">
-                Entrar
+              <Link href="/login" className="steam-link text-bold text-white transition-colors">
+                ENTRAR
               </Link>
             )}
           </nav>
 
-          {/* Mobile hamburger */}
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setOpen((s) => !s)}
@@ -126,7 +123,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div
         id="mobile-menu"
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
@@ -165,10 +161,10 @@ export function Navbar() {
           ) : (
             <Link
               href="/login"
-              className="block px-3 py-2 rounded-md hover:bg-gray-800/30"
+              className="block px-3 py-2 rounded-md text-bold hover:bg-gray-800/30"
               onClick={() => setOpen(false)}
             >
-              Entrar
+              ENTRAR
             </Link>
           )}
         </nav>

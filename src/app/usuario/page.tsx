@@ -2,7 +2,7 @@
 
 import React from "react";
 import UserProfile from "../_components/userProfile";
-import GameCarousel from "@/components/gamescarousel";
+import GameCarousel from "../../components/gamescarousel";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 

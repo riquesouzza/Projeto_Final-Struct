@@ -23,13 +23,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
+    <html lang="pt-Br" className={`${geist.variable}`}>
       <body>
         <TRPCReactProvider>
           <AuthProvider>
-          <Navbar />
           {children}
-          <Footer />
           </AuthProvider>
         </TRPCReactProvider>
       </body>
