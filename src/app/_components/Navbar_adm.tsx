@@ -25,9 +25,9 @@ export default function NavbarAposLogin() {
   }, []);
 
   const links = [
-    { href: "/home_adm", label: "HOME" },
-    { href: "/home_adm/adicionar", label: "ADICIONAR" },
-    { href: "/home_adm/excluir", label: "EXCLUIR" },
+    { href: "/home_adm", label: "Home" },
+    { href: "/home_adm/adicionar", label: "Adicionar" },
+    { href: "/home_adm/excluir", label: "Excluir" },
   ];
 
   return (

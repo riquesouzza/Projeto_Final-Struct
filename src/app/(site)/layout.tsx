@@ -9,7 +9,7 @@ export default function PrivateLayout({children,}: {children: React.ReactNode;})
 
   return (
     <body>
-      <Navbar />
+      <Navbar_apos_login />
       <main>{children}</main>
       <Footer_apos_login />
       <Toaster position="top-right" />

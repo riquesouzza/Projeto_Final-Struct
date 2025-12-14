@@ -2,13 +2,12 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import { TRPCReactProvider } from "@/trpc/react";
-import { AuthProvider } from "@/components/authProvider";
+import Footer from "@/app/_components/Footer";
+import Navbar from "../_components/Navbar";
 
 export const metadata: Metadata = {
   title: "SteamReviews",
   description: "Uma plataforma estilo Steam focada em reviews de jogos.",
-  // icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 const geist = Geist({
@@ -18,10 +17,14 @@ const geist = Geist({
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="pt-BR" className={`${geist.variable}`}>
-      <TRPCReactProvider><AuthProvider>{children}</AuthProvider></TRPCReactProvider>
-    </html>
+    <body>
+        <Navbar />
+        {children}
+        <Footer />
+    </body>
   );
 }

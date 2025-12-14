@@ -1,9 +1,6 @@
 export default function Footer() {
   return (
 
-    // O Footer foi feito por Luca
-
-    // Ele contém seções de navegação e contato, além de direitos autorais
   <footer className="w-full steam-bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:justify-between items-start gap-6">
@@ -33,19 +30,13 @@ export default function Footer() {
                     Categorias
                   </a>
                 </li>
-                <li>
-                  <a className="steam-link" href="/#reviews">
-                    Reviews
-                  </a>
-                </li>
-                
               </ul>
             </div>
 
             <div>
               <h5 className="font-semibold steam-accent">Contato</h5>
-              <p className="mt-2 steam-text text-sm">Luca</p>
-              <p className="mt-1 steam-text text-sm">Pedro</p>
+              <p className="mt-2 steam-text text-sm">Struct</p>
+              <p className="mt-2 steam-text text-sm">UnB</p>
               <p className="mt-1 steam-text text-sm">Brasília, DF</p>
             </div>
           </div>

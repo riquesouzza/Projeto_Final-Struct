@@ -30,9 +30,9 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { href: "/#home", label: "HOME" },
-    { href: "/#about", label: "SOBRE" },
-    { href: "/#categories", label: "CATEGORIAS" },
+    { href: "/#home", label: "Home" },
+    { href: "/#about", label: "Sobre" },
+    { href: "/#categories", label: "Categorias" },
   ];
 
   return (
