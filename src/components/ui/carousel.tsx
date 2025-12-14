@@ -187,7 +187,11 @@ function CarouselPrevious({
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
+<<<<<<< HEAD
           ? "top-1/2 -translate-y-1/2 left-2 sm:-left-12"
+=======
+          ? "top-1/2 -left-12 -translate-y-1/2"
+>>>>>>> feat/Login_Register
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -217,7 +221,11 @@ function CarouselNext({
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
+<<<<<<< HEAD
           ? "top-1/2 -translate-y-1/2 right-2 sm:-right-12"
+=======
+          ? "top-1/2 -right-12 -translate-y-1/2"
+>>>>>>> feat/Login_Register
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -238,4 +246,8 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feat/Login_Register

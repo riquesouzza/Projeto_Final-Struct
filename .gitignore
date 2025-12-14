@@ -12,6 +12,7 @@
 /prisma/db.sqlite
 /prisma/db.sqlite-journal
 db.sqlite
+/prisma/migrations
 
 # next.js
 /.next/
@@ -24,6 +25,7 @@ next-env.d.ts
 # misc
 .DS_Store
 *.pem
+/.vscode
 
 # debug
 npm-debug.log*
@@ -44,3 +46,4 @@ yarn-error.log*
 
 # idea files
 .idea
+Projeto_Final-Struct.code-workspace

@@ -14,6 +14,10 @@ const config = {
       },
     ],
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> feat/Login_Register
 };
 
 export default config;
