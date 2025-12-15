@@ -80,6 +80,14 @@ export default function Navbar() {
                       Meu perfil
                     </Link>
 
+                    <Link
+                      href="/inicio"
+                      className="block px-3 py-2 rounded-md hover:bg-gray-800/30"
+                      onClick={() => setOpen(false)}
+                    >
+                    Painel de avaliar
+                    </Link>
+
                     <button
                       className="block w-full text-left px-3 py-2 hover:bg-gray-800 rounded"
                       onClick={() => signOut()}
@@ -149,6 +157,14 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
               >
                 Meu perfil
+              </Link>
+
+              <Link
+                href="/inicio"
+                className="block px-3 py-2 rounded-md hover:bg-gray-800/30"
+                onClick={() => setOpen(false)}
+              >
+                Painel de avaliar
               </Link>
 
               <button
