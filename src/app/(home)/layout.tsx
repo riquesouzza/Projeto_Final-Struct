@@ -21,12 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={geist.variable}>
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <body>
+      <Navbar />
+      {children}
+      <Footer />
+    </body>
   );
 }
